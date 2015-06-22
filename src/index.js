@@ -5,3 +5,5 @@ const app = angular
   .module('Sorter',[])
   .directive('sortable', Sortable.factory)
   .directive('sortKey', SortKey.factory)
+
+export default app.name;
