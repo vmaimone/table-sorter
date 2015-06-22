@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table Sort Demo</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+  <script src="dist/sorter.js"></script>
+</head>
+<body class="container" ng-app="Demo" ng-controller="AppCtrl as app">
+  <h2 class="page-header">Table Sorter</h2>
+
+  <p>Click on a table header to sort the table</p>
+
+  <br>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead sortable sort-obj="app.sort">
+      <tr>
+        <th sort-key="col1">Column 1</th>
+        <th sort-key="col2">Column 2</th>
+        <th sort-key="col3">Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in app.dataset | orderBy:app.sort">
+        <td ng-bind="row.col1"></td>
+        <td ng-bind="row.col2"></td>
+        <td ng-bind="row.col3"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <script>
+  var dataset = [
+    {col1: true, col2: 'bill', col3: 100},
+    {col1: false, col2: 'todd', col3: 200},
+    {col1: false, col2: 'bob', col3: 300},
+    {col1: false, col2: 'steve', col3: 400},
+  ]
+
+  angular
+    .module('Demo',['Sorter'])
+    .controller('AppCtrl', function() {
+      this.dataset = dataset;
+    })
+  </script>
+</body>
+</html>
