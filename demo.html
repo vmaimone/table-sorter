@@ -31,13 +31,17 @@
     </tbody>
   </table>
 
+  <h4><code>app.sort</code></h4>
+  <pre ng-bind="app.sort | json:false"></pre>
 
   <script>
   var dataset = [
     {col1: true, col2: 'bill', col3: 100},
     {col1: false, col2: 'todd', col3: 200},
     {col1: false, col2: 'bob', col3: 300},
+    {col1: false, col2: 'bert', col3: 300},
     {col1: false, col2: 'steve', col3: 400},
+    {col1: true, col2: 'ned', col3: 900},
   ]
 
   angular
